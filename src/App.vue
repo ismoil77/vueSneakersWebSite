@@ -3,12 +3,13 @@ import axios from 'axios'
 import { computed, onMounted, provide, reactive, ref, watch } from 'vue'
 import Drawer from './components/Drawer.vue'
 import Header from './components/Header.vue'
+import AddModal from './components/AddModal.vue'
 
 const items = ref([])
 const cart = ref([])
 const drawerOpen = ref(false)
 const orderSuccess = ref(false)
-
+const openModal = ref(false)
 const totalPrice = computed(() => cart.value.reduce((acc, cur) => acc + cur.price, 0))
 
 const filters = reactive({
@@ -105,13 +106,18 @@ provide('cart', {
   fetchFavorites,
   fetchItems,
   orderSuccess,
+  openModal
 })
+
 </script>
 
 <template>
   <Drawer v-if="drawerOpen" @createOrder="createOrder" />
   <div class="w-4/5 m-auto bg-white rounded-3xl shadow-xl mt-14">
     <Header @openDrawer="openDrawer" :totalPrice="totalPrice" />
+    <div v-if="openModal" class="">
+      <AddModal />
+    </div>
     <div class="p-10">
       <router-view></router-view>
     </div>

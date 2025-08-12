@@ -21,6 +21,7 @@ try {
 
 <template>
 <div class="">
+	
 	<h2 class="text-3xl font-bold mb-8" v-auto-animate>Мои закладки</h2>
 	 <CardList
       :items="favorites"

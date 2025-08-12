@@ -18,8 +18,9 @@ const emit = defineEmits(['addToFavorites','addToCart'])
       :is-added="item.isAdded"
       :is-favorite="item.isFavorite||false"
       :onClickFavorite="()=>emit('addToFavorite',item)"
-      :onClickAdd = "()=>emit('addToCart',item)"
-      :buttonVisible = "buttonVisible"
+      :onClickAdd="()=>emit('addToCart',item)"
+      :buttonVisible="buttonVisible"
+      :id='item.id'
     />
   </div>
 </template>

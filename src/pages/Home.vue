@@ -4,7 +4,7 @@ import CardList from '@/components/CardList.vue'
 import { inject } from 'vue'
 import debounce from 'lodash.debounce'
 
-const { addToCart, cart, filters, items } = inject('cart')
+const { addToCart, cart, filters, items, openModal } = inject('cart')
 
 const handleChange = debounce((e) => {
   filters.sortBy = e.target.value
@@ -35,6 +35,8 @@ const addToFavorite = async (item) => {
 <template>
   <div class="flex justify-between items-center">
     <h2 class="text-3xl font-bold">Все кроссовки</h2>
+    <button class='bg-lime-500 text-white px-4 py-2 rounded' @click='openModal = true'>Добавить новые кроссовки</button>
+    
     <div class="flex gap-4">
       <select
         @change="handleChange"
