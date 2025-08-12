@@ -8,7 +8,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Favorites from './pages/Favorites.vue'
 import OrderPages from './pages/OrderPages.vue'
 import Profile from './pages/Profile.vue'
-import TovarById from './pages/tovarById.vue'
+import TovarById from './pages/TovarById.vue'
 
 const app = createApp(App)
 const routes = [
